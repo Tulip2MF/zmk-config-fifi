@@ -9,13 +9,16 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BASE    0
-#define MEDIA   6
-#define NAV     1
-#define MOUSE   2
-#define SYM     5
-#define NUM     3
-#define FUN     4
+// LAYERS
+#define DEFAULT 0
+#define NUM     1
+#define NAV     2
+
+
+&mt {
+  tapping-term-ms = <200>;
+  flavor = "tap-preferred";
+};
 
 / {
 	behaviors {
@@ -23,76 +26,66 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods";
 			#binding-cells = <2>;
-			tapping_term_ms = <150>;
+			tapping_term_ms = <200>;
+			quick-tap-ms = <0>;
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
+		
+			
 	};
-
-    keymap {
+	
+	
+	    keymap {
         compatible = "zmk,keymap";
 
         base_layer {
+		
+		                     label="BASE";
+            // -----------------------------------------------------------------------------------------
+           //   Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  
+          //    ALT/A  | CTRL/S  | Win/D  | SHF/F  | Num G  |   |  H  |  J   |  K  |  L  |  ;  
+         //     Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  
+        //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
+		
             bindings = <
-   &kp Q      &kp W       &kp E         &kp R         &kp T           &kp Y       &kp U       &kp I       &kp O         &kp P
-   &hm LALT A &hm LCTRL S  &hm LGUI D   &hm LSHFT F   &lt NUM G       &lt NUM H   &hm LSHFT J &hm LGUI K &hm LCTRL L    &hm LALT SINGLE_QUOTE
-   &kp Z      &hm RALT X  &kp C         &kp V         &kp B           &kp N       &kp M       &kp COMMA   &kp DOT  &kp FSLH
-                          &kp LGUI    &lt NUM TAB     &kp BSPC        &kp SPACE   &lt NAV ENTER   &lt FUN ESC
+             &kp Q      &kp W        &kp E         &kp R         &kp T           &kp Y       &kp U       &kp I       &kp O         &kp P
+             &hm LALT A &hm LCTRL S  &hm LGUI D    &hm LSHFT F   &kp G           &kp H       &hm LSHFT J &hm LGUI K  &hm LCTRL L   &hm LALT SINGLE_QUOTE
+             &kp Z      &kp X   &kp C         &kp V         &kp B           &kp N       &kp M       &kp COMMA   &kp DOT  &kp FSLH
+                          &kp DEL    &lt NUM BSPC   &mt LSHFT SPACE       &mt RSHFT RET   &lt NAV TAB   &kp ESC
             >;
         };
 
-        nav_layer {
-            bindings = <
-   &none      &none       &none            &none           &none    &none       &none      &none     &none    &none
-   &kp LGUI    &kp LALT     &hm LCTRL GRAVE   &hm LSHFT BSLH   &none       &kp LEFT    &kp DOWN   &kp UP    &kp RIGHT  &none
-   &none      &none       &kp TILDE       &kp PIPE      &none       &none    &none    &none  &none &none
-                            &none       &kp DEL       &none       &none    &none    &none
-            >;
-        };
+        number_layer {
+                        label = "NUM";
+         // -----------------------------------------------------------------------------------------
+        //  F1  | F2  | F3  | F4  | F5  |   | F6  | F7  | F8  | F9  | F10 |
+       //   1   |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+      //    F11 | F12 |  [  |  ]  |     |   |     |  -  |  =  |  \  |   
+     //                    |     |     |     |   |     |     |     |
+                        bindings = <
+            &kp F1  &kp F2  &kp F3   &kp F4   &kp F5     &kp F6  &kp F7    &kp F8    &kp F9    &kp F10  
+            &kp N1  &kp N2  &kp N3   &kp N4   &kp N5     &kp N6  &kp N7    &kp N8    &kp N9    &kp N0   
+            &kp F11 &kp F12 &kp LBKT &kp RBKT &trans     &kp GRAVE  &kp MINUS &kp EQUAL &kp BSLH  &trans  
+                             &trans  &trans  &trans     &trans  &trans    &trans
+                        >;
+                };	
 
-        mouse_layer {
-            bindings = <
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 3 &bt BT_SEL 3 &bt BT_SEL 4  &none &none &none &none &bt BT_CLR
-   &kp LGUI    &kp LALT     &kp LCTRL    &kp LSHFT    &none       &none &none &none &none &none
-   &reset      &bootloader       &none       &none       &none       &none &none &none &none &out OUT_TOG
-                            &none       &none       &none       &none &none &none
-            >;
-        };
-
-        num_layer {
-            bindings = <
-   &kp EXCL  &kp AT &kp HASH  &kp DOLLAR &kp PRCNT            &kp CARET &kp AMPERSAND &kp ASTRK &kp LPAR &kp RPAR
-   &hm LALT N1  &hm LCTRL N2 &hm LGUI N3  &hm LSHFT N4 &kp N5   &kp SEMICOLON  &hm LSHFT MINUS   &hm LGUI EQUAL   &hm LCTRL LEFT_BRACKET  &hm LALT RIGHT_BRACKET
-   &kp N6       &kp N7       &kp N8       &kp N9       &kp N0   &kp COLON     &kp UNDERSCORE       &kp PLUS       &kp LEFT_BRACE       &kp RIGHT_BRACE
-                    &none &kp DOT &none                        &none     &none       &none
-            >;
-        };
-
-        fun_layer {
-            bindings = <
-   &kp F1 &kp F2 &kp F3    &kp F4    &kp F5             &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-   &hm LALT CAPSLOCK &kp LCTRL &kp LGUI &kp RSHFT  &none   &none     &kp LSHFT    &kp LGUI    &hm LCTRL F11     &hm LALT F12
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 3 &bt BT_SEL 3 &bt BT_SEL 4  &none &none &none &none &bt BT_CLR
-                  &kp K_LOCK  &none &none        &none     &none       &none
-            >;
-        };
-
-        sym_layer {
-            bindings = <
-   &kp LBRC  &kp AMPS &kp ASTRK &kp LPAR  &kp RBRC    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bootloader
-   &kp COLON &kp DLLR &kp PRCNT &kp CARET &kp PLUS    &none     &kp LSHFT    &kp LCTRL    &kp LALT     &kp LGUI
-   &kp TILDE &kp EXCL &kp AT    &kp HASH  &kp PIPE    &none     &none       &none       &none       &reset
-                      &kp LPAR  &kp RPAR  &kp UNDER   &none     &none       &none
-            >;
-        };
-
-        media_layer {
-            bindings = <
-   &bootloader &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &bt BT_CLR   &none     &none     &none            &none          &none
-   &kp LGUI    &kp LALT     &kp LCTRL    &kp LSHFT    &none       &none     &kp C_PREV &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_NEXT
-   &reset      &out OUT_USB &out OUT_BLE &out OUT_TOG &none       &none     &none     &none            &none          &reset
-                            &none       &none       &none       &kp C_STOP &kp C_PP   &kp C_MUTE
-            >;
-        };
+       
+            nav_layer {
+                        label = "NAV";
+        // -----------------------------------------------------------------------------------------
+       // |      |     | BACK| HOME| PGUP|     |   |     |     | UP  |     |     |      |
+      //  |      |     | FWD | END | PGDN|     |   |     | LT  | DN  | RT  |     |      |
+     //   | BTCLR| BT1 | BT2 | MUTE| P/P |     |   |     |     |     |     |     |      |
+    //                    |     |     |     |   |     |     |     |
+                        bindings = <
+   &trans  &trans  &kp C_AC_BACK    &kp HOME &kp PG_UP       &trans   &kp UP   &trans    &trans  &trans
+   &trans  &trans  &kp C_AC_FORWARD &kp END  &kp PG_DN       &trans  &kp LEFT &kp DOWN &kp RIGHT &trans  
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &kp C_MUTE   &kp C_PP &trans      &trans  &trans   &trans   &trans    
+                    	  &trans   &trans    &trans      &trans  &trans   &trans
+                        >;
+                };
+         
     };
-};
+	
