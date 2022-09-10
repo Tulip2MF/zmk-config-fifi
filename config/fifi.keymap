@@ -1,4 +1,4 @@
-/*
+	/*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
@@ -50,9 +50,9 @@
 		
             bindings = <
              &kp Q      &kp W        &kp E         &kp R         &kp T           &kp Y       &kp U       &kp I       &kp O         &kp P
-             &kp A &kp S  &kp D    &kp F   &kp G           &kp H       &kp J &kp K  &kp L   &kp SINGLE_QUOTE
+             &kp A &hm LCTRL S  &kp D    &hm LSHFT F   &kp G           &kp H       &hm LSHFT J &hm LGUI K  &hm LCTRL L   &hm LALT SINGLE_QUOTE
              &kp Z      &kp X   &kp C         &kp V         &kp B           &kp N       &kp M       &kp COMMA   &kp DOT  &kp FSLH
-                          &kp LGUI    &kp ESC   &mt LSHFT SPACE       &mt RSHFT RET   &kp TAB   &kp BSPC
+                          &kp LGUI    &lt NUM ESC   &mt LSHFT SPACE       &mt RSHFT RET   &lt NAV TAB   &kp BSPC
             >;
         };
 
