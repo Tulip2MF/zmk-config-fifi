@@ -13,6 +13,7 @@
 #include "../zmk-nodefree-config-main/keypos_def/keypos_36keys.h"
 #include "../zmk-nodefree-config-main/international_chars/german.dtsi"
 
+
 #define DEFAULT 0
 #define NUM     1
 #define NAV     2
