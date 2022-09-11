@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "../zmk-nodefree-config/international_chars/german.dtsi"
 
 #define DEFAULT 0
 #define NUM     1
@@ -33,16 +34,6 @@
     };
     
     
-    //test
-    ZMK_BEHAVIOR(esset, macro,
-    wait-ms = <100>;
-    tap-ms = <5>;
-    bindings = <&kp LEFT_ALT &kp N0 &kp N2 &kp N2 &kp N3>;
-       )
-       
-       #undef COMBO_TERM
-#define COMBO_TERM 50
-ZMK_COMBO(esset,  &kp LC(C), 12 13, ALL)
 
 
 ZMK_UNICODE_PAIR( de_ae,   N0, N0,  E, N4,   N0, N0,  C, N4 )
