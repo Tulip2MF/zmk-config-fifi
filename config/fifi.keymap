@@ -16,21 +16,10 @@
 #define NUM     1
 #define NAV     2
 
-
 &mt {
     tapping-term-ms = <150>;
     flavor = "tap-preferred";
 };
-
-
-
-	// tap: sticky shift | double tap: capsword
-ZMK_BEHAVIOR(ss_cw, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&sk LSHFT>, <&caps_word>;
-)
-
-
 
 / {
     behaviors {
@@ -46,21 +35,15 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
                 <&kp>;
         };
     };
-    
-    
 
+    combos {
+        compatible = "zmk,combos";
 
-
-
-
-   };
-    
-    
-
-
-       
-    //kp SINGLE_QUOTE
-    
+        new_combo {
+            bindings = <&kp LEFT_ALT &kp N0 &kp N2 &kp N2 &kp N3>;
+            key-positions = <12 9>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -75,7 +58,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
             //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
 
             bindings = <
-  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &de_ae
+  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
   &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
   &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
                  &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
