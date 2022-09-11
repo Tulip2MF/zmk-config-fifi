@@ -103,9 +103,9 @@
 
         MISC {
             bindings = <
- &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &de_oe  &de_eszett
+  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &euro_sign   &de_ae
+  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &de_ue
                    &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
