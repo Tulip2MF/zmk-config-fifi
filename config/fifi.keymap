@@ -62,7 +62,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
 
 
        
-    //kp SINGLE_QUOTE
+    //
     
 
     keymap {
@@ -78,7 +78,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
             //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
 
             bindings = <
-  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &de_ae
+  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  kp SINGLE_QUOTE
   &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
   &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
                  &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
