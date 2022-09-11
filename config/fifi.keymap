@@ -102,6 +102,7 @@
                                  &trans      &trans     &trans  &trans    &trans     &trans
             >;
         };
+        
 
         MISC {
             bindings = <
