@@ -1,6 +1,6 @@
 /* German umlauts */
-ZMK_UNICODE_PAIR(   de_ae,      N0, N2,  N2, N8,    N0, N1,  N9, N6)
-ZMK_UNICODE_PAIR(   de_oe,      N0, N2,  N4, N6,    N0, N2,  N1, N4)
-ZMK_UNICODE_PAIR(   de_ue,      N0, N2,  N5, N2,    N0, N2,  N2, N0)
-ZMK_UNICODE_SINGLE( de_eszett,  N0, N2,  N2,  N3)
+ZMK_UNICODE_PAIR(   de_ae,      KP_N0, KP_N2,  KP_N2, KP_N8,    KP_N0, KP_N1,  KP_N9, KP_N6)
+ZMK_UNICODE_PAIR(   de_oe,      KP_N0, KP_N2,  KP_N4, KP_N6,    KP_N0, KP_N2,  KP_N1, KP_KP_N4)
+ZMK_UNICODE_PAIR(   de_ue,      KP_N0, KP_N2,  KP_N5, KP_N2,    KP_N0, KP_N2,  KP_N2, KP_N0)
+ZMK_UNICODE_SINGLE( de_eszett,  KP_N0, KP_N2,  KP_N2,  KP_N3)
 
