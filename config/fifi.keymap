@@ -22,6 +22,7 @@
 };
 
 
+
 	// tap: sticky shift | double tap: capsword
 ZMK_BEHAVIOR(ss_cw, tap_dance,
     tapping-term-ms = <200>;
