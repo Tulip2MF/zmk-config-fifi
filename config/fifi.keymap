@@ -37,6 +37,7 @@
 
         new_combo {
             bindings = <&kp SCROLLLOCK>;
+            bindings = <&kp LEFT_ALT &kp N0 &kp N2 &kp N2 &kp N3>;
             key-positions = <12 9>;
         };
     };
