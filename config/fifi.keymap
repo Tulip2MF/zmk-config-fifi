@@ -99,7 +99,7 @@
      &trans      &kp LEFT        &kp UP   &kp RIGHT  &kp PG_UP  &trans  &kp LEFT     &kp UP  &kp RIGHT    &kp CAPS
      &trans        &trans      &kp DOWN      &trans  &kp PG_DN  &trans    &trans   &kp DOWN     &trans      &trans
  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &kp C_MUTE   &kp C_PP  &tog 3    &trans  &kp LCTRL   &kp LALT  &kp DELETE
-                                 &trans      &trans     &trans  &trans    &trans     &trans
+                                 &trans      &trans     &trans  &trans    &trans     &tog 2
             >;
         };
 
