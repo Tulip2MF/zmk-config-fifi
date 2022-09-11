@@ -31,6 +31,24 @@
                 <&kp>;
         };
     };
+    
+    
+    //test
+    ZMK_BEHAVIOR(esset, macro,
+    wait-ms = <100>;
+    tap-ms = <5>;
+    bindings = <&kp LEFT_ALT &kp N0 &kp N2 &kp N2 &kp N3>;
+       )
+       
+       #undef COMBO_TERM
+#define COMBO_TERM 50
+ZMK_COMBO(esset,  &kp LC(C), 12 13, ALL)
+
+
+ZMK_UNICODE_PAIR( de_ae,   N0, N0,  E, N4,   N0, N0,  C, N4 )
+ZMK_UNICODE_PAIR( de_oe,   N0, N0,  F, N6,   N0, N0,  D, N6 )
+ZMK_UNICODE_PAIR( de_ue,   N0, N0,  F,  C,   N0, N0,  D,  C )
+
 
     combos {
         compatible = "zmk,combos";
@@ -40,6 +58,12 @@
             key-positions = <12 9>;
         };
     };
+    
+    
+
+       
+    //kp SINGLE_QUOTE
+    
 
     keymap {
         compatible = "zmk,keymap";
@@ -54,7 +78,7 @@
             //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
 
             bindings = <
-  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
+  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &&de_ae
   &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
   &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
                  &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
