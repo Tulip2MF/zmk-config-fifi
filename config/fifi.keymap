@@ -6,7 +6,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>// LAYERS
+#include <dt-bindings/zmk/bt.h>
+
 #define DEFAULT 0
 #define NUM     1
 #define NAV     2
@@ -31,6 +32,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        Esset {
+            bindings = <&kp>;
+            key-positions = <>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -44,10 +54,10 @@
             //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
 
             bindings = <
-  &kp Q   &kp W     &kp F      &kp P      &kp B          &kp J      &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
-  &kp A   &kp R     &kp S      &kp T      &kp G          &kp M      &kp N      &kp E    &kp I             &kp O
-  &kp Z   &kp X     &kp C      &kp D      &kp V          &kp K      &kp H  &kp COMMA  &kp DOT        &kp DELETE
-                 &kp LGUI  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &lt 2 TAB   &kp BSPC
+  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
+  &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
+  &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
+                 &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
             >;
         };
 
@@ -78,10 +88,19 @@
             //                    |     |     |     |   |     |     |     |
 
             bindings = <
-     &trans      &kp LEFT        &kp UP   &kp RIGHT  &kp PG_UP  &trans  &trans     &trans    &trans    &kp CAPS
-     &trans        &trans      &kp DOWN      &trans  &kp PG_DN  &trans  &trans     &trans    &trans      &trans
- &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &kp C_MUTE   &kp C_PP  &trans  &trans  &kp LCTRL  &kp LALT  &kp DELETE
-                                 &trans      &trans     &trans  &trans  &trans     &trans
+     &trans      &kp LEFT        &kp UP   &kp RIGHT  &kp PG_UP  &trans  &kp LEFT     &kp UP  &kp RIGHT    &kp CAPS
+     &trans        &trans      &kp DOWN      &trans  &kp PG_DN  &trans    &trans   &kp DOWN     &trans      &trans
+ &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &kp C_MUTE   &kp C_PP  &tog 3    &trans  &kp LCTRL   &kp LALT  &kp DELETE
+                                 &trans      &trans     &trans  &trans    &trans     &trans
+            >;
+        };
+
+        MISC {
+            bindings = <
+ &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                   &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
