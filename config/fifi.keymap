@@ -35,9 +35,9 @@
     combos {
         compatible = "zmk,combos";
 
-        Esset {
-            bindings = <&kp>;
-            key-positions = <>;
+        new_combo {
+            bindings = <&kp SCROLLLOCK>;
+            key-positions = <12 9>;
         };
     };
 
@@ -71,10 +71,10 @@
             //                    |     |     |     |   |     |     |     |
 
             bindings = <
-  &kp F1   &kp F2                &kp F3                 &kp F4            &kp F5             &kp F6    &kp F7    &kp F8     &kp F9    &kp F10
-  &kp N1   &kp N2                &kp N3                 &kp N4            &kp N5             &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
- &kp F11  &kp F12  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp FSLH  &kp PLUS  &kp MINUS  &kp EQUAL
-                                 &trans                 &trans            &trans             &trans    &trans    &trans
+               &kp F1                 &kp F2            &kp F3             &kp F4            &kp F5           &kp N1    &kp N2    &kp N3     &kp N4     &kp N5
+               &kp F6                 &kp F7            &kp F8             &kp F9           &kp F10           &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
+ &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACKET  &kp KP_ASTERISK  &kp FSLH  &kp PLUS  &kp MINUS  &kp EQUAL
+                                                  &kp LEFT_ALT             &trans            &trans           &trans    &trans    &trans
             >;
         };
 
