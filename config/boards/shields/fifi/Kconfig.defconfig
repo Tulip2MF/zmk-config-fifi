@@ -1,7 +1,7 @@
 if SHIELD_FIFI_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "Fifi"
+	default "Akhi's Keeb"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
