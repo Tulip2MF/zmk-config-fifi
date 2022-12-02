@@ -63,9 +63,9 @@
             //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
 
             bindings = <
-  &kp Q   &kp W           &kp E      &kp R      &kp T          &kp Y   &kp U      &kp I       &kp O         &kp P
-  &kp A   &kp S           &kp D      &kp F      &kp G          &kp H   &kp J      &kp K       &kp L         &kp SINGLE_QUOTE
-  &kp Z   &kp X           &kp C      &kp V      &kp B          &kp N   &kp M      &kp COMMA   &kp DOT       &kp DELETE
+  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
+  &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
+  &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
                  &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
             >;
         };
@@ -87,7 +87,6 @@
             >;
         };
 
-
         NAV {
             label = "NAV";
 
@@ -108,7 +107,7 @@
 
         MISC {
             bindings = <
- &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &de_ae
   &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
   &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                    &trans  &trans  &trans  &trans  &trans  &trans
