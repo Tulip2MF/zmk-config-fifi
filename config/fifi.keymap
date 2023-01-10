@@ -17,6 +17,7 @@
 #define DEFAULT 0
 #define NUM     1
 #define NAV     2
+#define MISC     2
 
 
 &mt {
