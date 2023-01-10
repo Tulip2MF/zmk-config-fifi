@@ -18,6 +18,7 @@
 #define ZMK_BEHAVIOR_CORE_mod_morph   compatible = "zmk,behavior-mod-morph";  #binding-cells = <0>
 #define ZMK_BEHAVIOR_CORE_sticky_key  compatible = "zmk,behavior-sticky-key"; #binding-cells = <1>
 #define ZMK_BEHAVIOR_CORE_tap_dance   compatible = "zmk,behavior-tap-dance";  #binding-cells = <0>
+#define ZMK_BEHAVIOR_CORE_tri_state   compatible = "zmk,behavior-tri-state";  #binding-cells = <0>
 
 #define ZMK_BEHAVIOR(name, type, ...) \
     / { \
@@ -32,12 +33,26 @@
 
 /* ZMK_LAYER */
 
-#define ZMK_LAYER(name, layout) \
+#define MACRO_CHOOSER3(_1, _2, _3, FUNC, ...) FUNC
+#define ZMK_LAYER(...) MACRO_CHOOSER3(__VA_ARGS__, ZMK_LAYER_3_ARGS, ZMK_LAYER_2_ARGS)(__VA_ARGS__)
+#define ZMK_LAYER_2_ARGS(name, layout) \
     / { \
         keymap { \
             compatible = "zmk,keymap"; \
-            name { \
+            layer_ ## name { \
+                label = ZMK_HELPER_STRINGIFY(name); \
                 bindings = <layout>; \
+            }; \
+        }; \
+    };
+#define ZMK_LAYER_3_ARGS(name, layout, sensors) \
+    / { \
+        keymap { \
+            compatible = "zmk,keymap"; \
+            layer_ ## name { \
+                label = ZMK_HELPER_STRINGIFY(name); \
+                bindings = <layout>; \
+                sensor-bindings = <sensors>; \
             }; \
         }; \
     };
@@ -48,24 +63,15 @@
 #if !defined COMBO_TERM
     #define COMBO_TERM 30
 #endif
-
-#define ZMK_COMBO(name, combo_bindings, keypos, combo_layers) \
-    / { \
-        combos { \
-            compatible = "zmk,combos"; \
-            combo_ ## name { \
-                timeout-ms = <COMBO_TERM>; \
-                bindings = <combo_bindings>; \
-                key-positions = <keypos>; \
-                layers = <combo_layers>; \
-            }; \
-        }; \
-    };
-
 #if !defined COMBO_HOOK
     #define COMBO_HOOK
 #endif
-#define ZMK_COMBO_ADV(name, combo_bindings, keypos, combo_layers, combo_timeout) \
+
+#define MACRO_CHOOSER5(_1, _2, _3, _4, _5, FUNC, ...) FUNC
+#define ZMK_COMBO(...) MACRO_CHOOSER5(__VA_ARGS__, ZMK_COMBO_5_ARGS, ZMK_COMBO_4_ARGS)(__VA_ARGS__)
+#define ZMK_COMBO_4_ARGS(name, combo_bindings, keypos, combo_layers) \
+    ZMK_COMBO_5_ARGS(name, combo_bindings, keypos, combo_layers, COMBO_TERM)
+#define ZMK_COMBO_5_ARGS(name, combo_bindings, keypos, combo_layers, combo_timeout) \
     / { \
         combos { \
             compatible = "zmk,combos"; \
@@ -96,7 +102,7 @@
 
 #if !defined OS_UNICODE_LEAD
     #if HOST_OS == 2
-        #define OS_UNICODE_LEAD &macro_press &kp LALT      // macOS
+        #define OS_UNICODE_LEAD &macro_press &kp LALT      // macOS/Windows-Alt-Codes
     #elif HOST_OS == 1
         #define OS_UNICODE_LEAD &macro_tap &kp LS(LC(U))   // Linux
     #else
@@ -105,7 +111,7 @@
 #endif
 #if !defined OS_UNICODE_TRAIL
     #if HOST_OS == 2
-        #define OS_UNICODE_TRAIL &macro_release &kp LALT  // macOS
+        #define OS_UNICODE_TRAIL &macro_release &kp LALT  // macOS/Windows-Alt-Codes
     #elif HOST_OS == 1
         #define OS_UNICODE_TRAIL &macro_tap &kp SPACE     // Linux
     #else
@@ -136,7 +142,6 @@
                 #binding-cells = <0>; \
                 bindings = <uc_binding>, <shifted_uc_binding>; \
                 mods = <(MOD_LSFT|MOD_RSFT)>; \
-                masked-mods = <(MOD_LSFT|MOD_RSFT)>; \
             }; \
         }; \
     };
@@ -149,4 +154,3 @@
     UC_MACRO(name ## _lower, &kp L0 &kp L1 &kp L2 &kp L3) \
     UC_MACRO(name ## _upper, &kp U0 &kp U1 &kp U2 &kp U3) \
     UC_MODMORPH(name, &name ## _lower, &name ## _upper)
-
