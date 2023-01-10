@@ -1,120 +1,93 @@
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
+ *
  * SPDX-License-Identifier: MIT
  */
- 
-
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
-#define HOST_OS 2
-#include "../zmk-nodefree-config-main/helper.h"
-#include "../zmk-nodefree-config-main/keypos_def/keypos_36keys.h"
-#include "../zmk-nodefree-config-main/international_chars/german.dtsi"
-
-
+// LAYERS
 #define DEFAULT 0
 #define NUM     1
 #define NAV     2
 
 
-&mt {
-    tapping-term-ms = <150>;
-    flavor = "tap-preferred";
-};
 
+&mt {
+  tapping-term-ms = <150>;
+  flavor = "tap-preferred";
+};
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods";
-            #binding-cells = <2>;
-            tapping_term_ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings =
-                <&kp>,
-                <&kp>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        new_combo {
-            bindings = <&kp LEFT_ALT &kp N0 &kp N2 &kp N2 &kp N3>;
-            key-positions = <12 9>;
-        };
-    };
-
-    keymap {
+	behaviors {
+		hm: homerow_mods {
+			compatible = "zmk,behavior-hold-tap";
+			label = "homerow mods";
+			#binding-cells = <2>;
+			tapping_term_ms = <200>;
+			quick-tap-ms = <0>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+		
+			
+	};
+	
+	
+	    keymap {
         compatible = "zmk,keymap";
 
-        BASE {
-            label = "BASE";
-
+        base_layer {
+		
+		                     label="BASE";
             // -----------------------------------------------------------------------------------------
-            //   Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  
-            //    ALT/A  | CTRL/S  | Win/D  | SHF/F  | Num G  |   |  H  |  J   |  K  |  L  |  ;  
-            //     Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  
-            //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
-
+           //   Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  
+          //    ALT/A  | CTRL/S  | Win/D  | SHF/F  | Num G  |   |  H  |  J   |  K  |  L  |  ;  
+         //     Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  
+        //               | DEL  | NUM | SHF/SPC |   | SHF/ENT | NAV/TAB | ESC  |
+		
             bindings = <
-  &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
-  &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
-  &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
-                 &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
+             &kp Q      &kp W        &kp E         &kp R         &kp T           &kp Y       &kp U       &kp I       &kp O         &kp P
+             &kp A &kp S  &kp D    &kp F   &kp G           &kp H       &kp J &kp K  &kp L   &kp SINGLE_QUOTE
+             &kp Z      &kp X   &kp C         &kp V         &kp B           &kp N       &kp M       &kp COMMA   &kp DOT  &kp FSLH
+                          &kp LGUI    &kp ESC   &mt LSHFT SPACE       &mt RSHFT RET   &kp TAB   &kp BSPC
             >;
         };
 
-        NUM {
-            label = "NUM";
+        number_layer {
+                       label = "NUM";
+         // -----------------------------------------------------------------------------------------
+        //  F1  | F2  | F3  | F4  | F5  |   | F6  | F7  | F8  | F9  | F10 |
+       //   1   |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+      //    F11 | F12 |  [  |  ]  |   ; |   |  '   |  -  |  =  |  \  |   
+     //                    |     |     |     |   |     |     |     |
+                        bindings = <
+            &kp F1  &kp F2  &kp F3   &kp F4   &kp F5     &kp F6  &kp F7    &kp F8    &kp F9    &kp F10  
+            &kp N1  &kp N2  &kp N3   &kp N4   &kp N5     &kp N6  &kp N7    &kp N8    &kp N9    &kp N0   
+            &kp F11 &kp F12 &kp LBKT &kp RBKT &kp SEMI   &kp GRAVE  &kp MINUS &kp EQUAL &kp BSLH  &kp DEL  
+                             &trans  &trans  &trans     &trans  &trans    &trans
+                        >;
+                };	
 
-            // -----------------------------------------------------------------------------------------
-            //  F1  | F2  | F3  | F4  | F5  |   | F6  | F7  | F8  | F9  | F10 |
-            //   1   |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
-            //    F11 | F12 |  [  |  ]  |   ; |   |  '   |  -  |  =  |  \  |   
-            //                    |     |     |     |   |     |     |     |
-
-            bindings = <
-               &kp F1                 &kp F2            &kp F3             &kp F4            &kp F5           &kp N1    &kp N2    &kp N3     &kp N4     &kp N5
-               &kp F6                 &kp F7            &kp F8             &kp F9           &kp F10           &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
- &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACKET  &kp KP_ASTERISK  &kp FSLH  &kp PLUS  &kp MINUS  &kp EQUAL
-                                                  &kp LEFT_ALT             &trans            &trans           &trans    &trans    &tog 2
-            >;
-        };
-
-        NAV {
-            label = "NAV";
-
-            // -----------------------------------------------------------------------------------------
-            // |      |     | BACK| HOME| PGUP|     |   |     |     |     |  UP    |     |      |
-            //  |      |     | FWD | END | PGDN|     |   |     |     |  LT |  DN    |  RT |      |
-            //   | BTCLR| BT1 | BT2 | MUTE| P/P |     |   |     |     |     |     |     |      |
-            //                    |     |     |     |   |     |     |     |
-
-            bindings = <
-     &trans      &kp LEFT        &kp UP   &kp RIGHT  &kp PG_UP  &trans  &kp LEFT     &kp UP  &kp RIGHT    &kp CAPS
-     &trans        &trans      &kp DOWN      &trans  &kp PG_DN  &trans    &trans   &kp DOWN     &trans      &trans
- &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &kp C_MUTE   &kp C_PP  &tog 3    &trans  &kp LCTRL   &kp LALT  &kp DELETE
-                                 &trans      &trans     &trans  &trans    &trans     &trans
-            >;
-        };
-        
-
-        MISC {
-            bindings = <
- &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &de_ae
-  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                   &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
+       
+            nav_layer {
+                        label = "NAV";
+        // -----------------------------------------------------------------------------------------
+       // |      |     | BACK| HOME| PGUP|     |   |     |     |     |  UP    |     |      |
+      //  |      |     | FWD | END | PGDN|     |   |     |     |  LT |  DN    |  RT |      |
+     //   | BTCLR| BT1 | BT2 | MUTE| P/P |     |   |     |     |     |     |     |      |
+    //                    |     |     |     |   |     |     |     |
+                        bindings = <
+   &trans  &trans  &kp C_AC_BACK    &kp HOME &kp PG_UP       &trans  &trans &kp UP     &trans  &trans
+   &trans  &trans  &kp C_AC_FORWARD &kp END  &kp PG_DN       &trans  &kp LEFT &kp DOWN &kp RIGHT &trans  
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &kp C_MUTE   &kp C_PP &trans      &trans  &trans   &trans   &trans    
+                    	  &trans   &trans    &trans      &trans  &trans   &trans
+                        >;
+                };
+         
     };
 };
-Footer
-© 2022 GitHub, Inc.
