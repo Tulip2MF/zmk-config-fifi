@@ -44,8 +44,8 @@
         compatible = "zmk,combos";
 
         new_combo {
-            bindings = <&kp LEFT_ALT &kp N0 &kp N2 &kp N2 &kp N3>;
-            key-positions = <12 9>;
+            bindings = <&kp DEL>;
+            key-positions = <30 36>;
         };
     };
 
