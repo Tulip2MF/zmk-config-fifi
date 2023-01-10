@@ -64,7 +64,7 @@
             bindings = <
   &kp Q   &kp W           &kp F      &kp P      &kp B          &kp J   &kp L      &kp U    &kp Y  &kp SINGLE_QUOTE
   &kp A   &kp R           &kp S      &kp T      &kp G          &kp M   &kp N      &kp E    &kp I             &kp O
-  &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &kp DELETE
+  &kp Z   &kp X           &kp C      &kp D      &kp V          &kp K   &kp H  &kp COMMA  &kp DOT        &to 2
                  &lt 2 LEFT_WIN  &lt 1 ESC  &kp SPACE  &mt RSHFT RET  &tog 1   &kp BSPC
             >;
         };
@@ -98,7 +98,7 @@
             bindings = <
      &trans      &kp LEFT        &kp UP   &kp RIGHT  &kp PG_UP  &trans  &kp LEFT     &kp UP  &kp RIGHT    &kp CAPS
      &trans        &trans      &kp DOWN      &trans  &kp PG_DN  &trans    &trans   &kp DOWN     &trans      &trans
- &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &kp C_MUTE   &kp C_PP  &tog 3    &trans  &kp LCTRL   &kp LALT  &kp DELETE
+ &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &kp C_MUTE   &kp C_PP  &tog 3    &kp DELETE  &kp LCTRL   &kp LALT  &to 0
                                  &trans      &trans     &trans  &trans    &trans     &trans
             >;
         };
