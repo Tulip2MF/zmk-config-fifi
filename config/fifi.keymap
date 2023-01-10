@@ -46,7 +46,7 @@
 
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <31 36>;
+            key-positions = <30 35>;
             bindings = <&kp DEL>;
         };
     };
