@@ -40,7 +40,7 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 fifi_left_nice_nano_v2.uf2
       - name: Archive (Fifi Left)
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: firmware
           path: fifi_left_nice_nano_v2.uf2
@@ -52,7 +52,7 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 fifi_right_nice_nano_v2.uf2
       - name: Archive (Fifi Right)
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: firmware
           path: fifi_right_nice_nano_v2.uf2
