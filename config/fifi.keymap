@@ -108,7 +108,7 @@
 
         MISC {
             bindings = <
- &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &de_ue  &trans  &de_ae
+ &kp LWIN  &kp L  &trans  &trans  &trans  &trans  &trans  &de_ue  &trans  &de_ae
   &de_ae   &trans  &de_eszett  &trans  &trans  &trans  &trans  &trans  &trans  &de_oe
   &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                    &trans  &trans  &trans  &trans  &trans  &trans
