@@ -39,27 +39,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        find_combo {
-            timeout-ms = <50>;
-            key-positions = <29 2>;
-            bindings = <&kp K_FIND>;
-        };
-
-        
-
-        paste_combo {
-            bindings = <&kp K_PASTE>;
-            key-positions = <29 3>;
-        };
-
-        cut_combo {
-            bindings = <&kp K_CUT>;
-            key-positions = <29 21>;
-        };
-    };
+  
 
     macros {
     };
