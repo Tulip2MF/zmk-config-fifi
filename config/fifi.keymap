@@ -24,14 +24,7 @@
     flavor = "tap-preferred";
 };
 
-            ht_hp_mods {
-                compatible = "zmk,behavior-hold-tap";
-                label = "HT_HP";
-                #binding-cells = <2>;
-                tapping-term-ms = <250>;
-                flavor = "hold-preferred";
-                bindings = <&kp>, <&kp>;
-            };
+
 
 / {
     behaviors {
@@ -46,6 +39,15 @@
                 <&kp>,
                 <&kp>;
         };
+        
+        ht_hp: ht_hp_mods {
+                compatible = "zmk,behavior-hold-tap";
+                label = "HT_HP";
+                #binding-cells = <2>;
+                tapping-term-ms = <250>;
+                flavor = "hold-preferred";
+                bindings = <&kp>, <&kp>;
+            };
     };
 
   
