@@ -48,15 +48,7 @@
             bindings = <&kp K_FIND>;
         };
 
-        save_combo {
-            bindings = <&kp C_AC_SAVE>;
-            key-positions = <29 12>;
-        };
-
-        copy_combo {
-            bindings = <&kp K_COPY>;
-            key-positions = <29 22>;
-        };
+        
 
         paste_combo {
             bindings = <&kp K_PASTE>;
