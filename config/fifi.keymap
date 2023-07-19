@@ -52,6 +52,15 @@
   
 
     macros {
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            label = "NEW_MACRO";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(LG(S))>,
+                <&macro_press>,
+                <&kp Q &kp W>;
+        };
     };
 
     keymap {
