@@ -59,7 +59,8 @@
             bindings =
                 <&kp Q &kp W>,
                 <&macro_press>,
-                <&kp LS(LG(S))>;
+                <&kp LS(LG(S))>,
+<&macro_release &kp LS(LG(S))>;
         };
     };
 
