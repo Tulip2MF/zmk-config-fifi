@@ -49,18 +49,6 @@
             };
     };
 
-  
-
-{
-    combos {
-        compatible = "zmk,combos";
-        combo_scsnip {
-            timeout-ms = <50>;
-            key-positions = <0 1 2>;
-            bindings = <&your_macro>;
-        };
-    };
-}; 
 macros {
         your_macro: your_macro {
             compatible = "zmk,behavior-macro";
@@ -86,6 +74,22 @@ macros {
             bindings = <&kp LG(LS(S))>;
         };
     };
+
+
+
+
+
+{
+    combos {
+        compatible = "zmk,combos";
+        combo_scsnip {
+            timeout-ms = <50>;
+            key-positions = <0 1 2>;
+            bindings = <&your_macro>;
+        };
+    };
+}; 
+
 
 
     keymap {
