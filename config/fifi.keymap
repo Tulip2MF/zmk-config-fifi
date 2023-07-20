@@ -51,18 +51,29 @@
 
   
 
-    macros {
-        new_macro: new_macro {
-            compatible = "zmk,behavior-macro";
-            label = "NEW_MACRO";
-            #binding-cells = <0>;
-            bindings =
-               <&kp LS(LG(S))>,
-                <&macro_press>,
-                 <&kp Q &kp W>,
-<&macro_release &kp LS(LG(S))>;
+{
+    combos {
+        compatible = "zmk,combos";
+        combo_scsnip {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&your_macro>;
         };
     };
+}; 
+macros {
+        your_macro: your_macro {
+            compatible = "zmk,behavior-macro";
+            label = "YOUR_MACRO";
+            #binding-cells = <0>;
+            bindings =
+               <&macro_press &kp LSHFT>,
+               <&macro_press &kp LGUI>,
+               <&macro_tap &kp S>,
+               <&macro_release &kp LGUI>,
+               <&macro_release &kp LSHFT>;
+        };
+    }; 
 
 
 
