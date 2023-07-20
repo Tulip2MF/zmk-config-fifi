@@ -74,6 +74,12 @@
             key-positions = <0 4>;
             bindings = <&kp LG(LS(S))>;
         };
+
+        combo_scsnip {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&your_macro>;
+        };
     };
 
 
