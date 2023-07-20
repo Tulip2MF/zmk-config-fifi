@@ -75,7 +75,7 @@
             bindings = <&kp LG(LS(S))>;
         };
     };
-};
+
 
     keymap {
         compatible = "zmk,keymap";
