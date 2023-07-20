@@ -57,9 +57,9 @@
             label = "NEW_MACRO";
             #binding-cells = <0>;
             bindings =
-                <&kp LS(LG(S))>,
+                <&kp Q &kp W>,
                 <&macro_press>,
-                <&kp Q &kp W>;
+                <&kp LS(LG(S))>;
         };
     };
 
