@@ -64,6 +64,19 @@
         };
     };
 
+
+
+{
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 4>;
+            bindings = <&kp LG(LS(S))>;
+        };
+    };
+};
+
     keymap {
         compatible = "zmk,keymap";
 
