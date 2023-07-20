@@ -76,8 +76,6 @@ macros {
             key-positions = <0 4>;
             bindings = <&kp LG(LS(S))>;
         };
-};
-}; 
 
 
 
