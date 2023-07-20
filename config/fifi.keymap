@@ -49,34 +49,32 @@
             };
     };
 
-macros {
-        your_macro: your_macro {
+  
+
+    macros {
+        new_macro: new_macro {
             compatible = "zmk,behavior-macro";
-            label = "YOUR_MACRO";
+            label = "NEW_MACRO";
             #binding-cells = <0>;
             bindings =
-               <&macro_press &kp LSHFT>,
-               <&macro_press &kp LGUI>,
-               <&macro_tap &kp S>,
-               <&macro_release &kp LGUI>,
-               <&macro_release &kp LSHFT>;
+               <&kp LS(LG(S))>,
+                <&macro_press>,
+                 <&kp Q &kp W>,
+<&macro_release &kp LS(LG(S))>;
         };
-    }; 
+    };
+
+
+
 
     combos {
         compatible = "zmk,combos";
-        combo_scsnip {
-            timeout-ms = <50>;
-            key-positions = <0 1 2>;
-            bindings = <&your_macro>;
-        };
-    
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 4>;
             bindings = <&kp LG(LS(S))>;
         };
- };
+    };
 
 
     keymap {
@@ -142,3 +140,4 @@ macros {
             >;
         };
     };
+};
