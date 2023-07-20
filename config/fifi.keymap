@@ -70,12 +70,13 @@ macros {
             key-positions = <0 1 2>;
             bindings = <&your_macro>;
         };
-    };
+    
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 4>;
             bindings = <&kp LG(LS(S))>;
         };
+};
 }; 
 
 
