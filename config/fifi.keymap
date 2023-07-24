@@ -47,6 +47,13 @@
                 flavor = "hold-preferred";
                 bindings = <&kp>, <&kp>;
             };
+        parentheses_chevrons: parentheses_chevrons {
+                    compatible = "zmk,behavior-mod-morph";
+                    label = "parentheses_chevrons";
+                    #binding-cells = <0>;
+                    bindings = <&parentheses>, <&chevrons>;
+                    mods = <(MOD_LSFT)>;
+                            };
     };
 
   
@@ -74,6 +81,28 @@
                 wait-ms = <10>;
                 bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
                                     };
+
+                parentheses: parentheses {
+                            label = "parentheses";
+                            compatible = "zmk,behavior-macro";
+                            #binding-cells = <0>;
+                            bindings
+                                = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>
+                                ;
+                        };
+            chevrons: chevrons {
+                label = "chevrons";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <10>;
+                bindings
+                    = <&macro_tap &kp LT &kp GT &kp LEFT>
+                    ;
+
+
+
+
             };
 
 
@@ -103,6 +132,49 @@
             key-positions = <0 28>;
             bindings = <&kp LA(TAB)>;
         };
+
+
+combo_bracket_round_l {
+          timeout-ms = <50>;
+          global-quick-tap-ms = <300>;
+
+          key-positions = <22 23>;
+          bindings = <&kp LPAR>;
+        };
+        combo_bracket_round_r {
+          timeout-ms = <50>;
+          global-quick-tap-ms = <300>;
+
+          key-positions = <23 24>;
+          bindings = <&kp RPAR>;
+        };
+        combo_parentheses_chevrons {
+          timeout-ms = <50>;
+          global-quick-tap-ms = <300>;
+
+          key-positions = <22 23 24>;
+          bindings = <&parentheses_chevrons>;
+        };
+
+        combo_bracket_square_l {
+          timeout-ms = <50>;
+          global-quick-tap-ms = <300>;
+
+          key-positions = <36 37>;
+          bindings = <&kp LBKT>;
+        };
+        combo_bracket_square_r {
+          timeout-ms = <50>;
+          global-quick-tap-ms = <300>;
+
+          key-positions = <37 38>;
+          bindings = <&kp RBKT>;
+        };
+
+
+
+
+
     };
 
 
