@@ -52,17 +52,8 @@
   
 
     macros {
-        new_macro: new_macro {
-            compatible = "zmk,behavior-macro";
-            label = "NEW_MACRO";
-            #binding-cells = <0>;
-            bindings =
-               <&kp LA(TAB)>,
-                <&macro_press>,
 
-<&macro_release &kp LA(TAB)>;
-        };
-your_macro: your_macro {
+            your_macro: your_macro {
             compatible = "zmk,behavior-macro";
             label = "YOUR_MACRO";
             #binding-cells = <0>;
@@ -72,15 +63,15 @@ your_macro: your_macro {
                <&macro_tap &kp S>,
                <&macro_release &kp LGUI>,
                <&macro_release &kp LSHFT>;
-        };
-    };
+                                    };
+            };
 
 
 
 
     combos {
         compatible = "zmk,combos";
-        combo_esc {
+        combo_scrn_shot {
             timeout-ms = <50>;
             key-positions = <0 4>;
             bindings = <&kp LG(LS(S))>;
@@ -90,6 +81,12 @@ your_macro: your_macro {
             timeout-ms = <50>;
             key-positions = <20 21>;
             bindings = <&your_macro>;
+        };
+
+        combo_alt_tab {
+            timeout-ms = <50>;
+            key-positions = <0 28>;
+            bindings = <&kp LA(TAB)>;
         };
     };
 
