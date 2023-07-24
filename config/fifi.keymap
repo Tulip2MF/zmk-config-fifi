@@ -57,10 +57,10 @@
             label = "NEW_MACRO";
             #binding-cells = <0>;
             bindings =
-               <&kp LS(LG(S))>,
+               <&kp LA(TAB)>,
                 <&macro_press>,
-                 <&kp Q &kp W>,
-<&macro_release &kp LS(LG(S))>;
+
+<&macro_release &kp LA(TAB)>;
         };
 your_macro: your_macro {
             compatible = "zmk,behavior-macro";
