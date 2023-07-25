@@ -96,8 +96,10 @@
                 bindings = <&macro_tap &kp LT &kp GT &kp LEFT>;
                 };
 
-  };
-};
+          };
+    };
+
+
 / {
     combos {
         compatible = "zmk,combos";
