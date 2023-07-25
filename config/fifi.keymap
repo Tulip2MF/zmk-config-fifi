@@ -69,7 +69,7 @@
                <&macro_tap &kp S>,
                <&macro_release &kp LGUI>,
                <&macro_release &kp LSHFT>;
-                                    };
+            };
 
 
             macro_par: macro_par {
@@ -79,16 +79,16 @@
                 tap-ms = <10>;
                 wait-ms = <10>;
                 bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
-                                    };
+                };
 
-                parentheses: parentheses {
-                            label = "parentheses";
-                            compatible = "zmk,behavior-macro";
-                            #binding-cells = <0>;
-                            bindings
-                                = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>
-                                ;
-                        };
+            parentheses: parentheses {
+                        label = "parentheses";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                            = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>
+                            ;
+                    };
             chevrons: chevrons {
                 label = "chevrons";
                 compatible = "zmk,behavior-macro";
