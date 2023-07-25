@@ -85,10 +85,8 @@
                         label = "parentheses";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings
-                            = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>
-                            ;
-                    };
+                        bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
+                };
             chevrons: chevrons {
                 label = "chevrons";
                 compatible = "zmk,behavior-macro";
