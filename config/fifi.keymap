@@ -55,9 +55,10 @@
                     mods = <(MOD_LSFT)>;
                             };
     };
+};
 
 
-
+/ {
     macros {
 
             your_macro: your_macro {
@@ -106,8 +107,8 @@
             };
 
   };
-
-
+};
+/ {
     combos {
         compatible = "zmk,combos";
         combo_scrn_shot {
@@ -173,11 +174,11 @@ combo_bracket_round_l {
 
 
 
-
+};
 
     };
 
-
+/ {
     keymap {
         compatible = "zmk,keymap";
 
