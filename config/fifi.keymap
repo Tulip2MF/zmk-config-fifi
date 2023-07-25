@@ -100,6 +100,20 @@
     };
 
 
+
+                                  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+                                  //	    0             1             2             3            4                  5             6             7             8             9
+                                  // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                  //       10             11             12            13          14                 15            16            17            18            19
+                                  // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                  //       20             21             22            23          24                 25            26            27            28            29	
+                                  // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+                                  //                                	31	          31	       32                33             34            35
+                                  //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
+
+
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -111,49 +125,50 @@
 
         combo_scsnip {
             timeout-ms = <50>;
-            key-positions = <20 21>;
+            key-positions = <0 9>;
             bindings = <&your_macro>;
         };
-        combo_Parentheses {
-            timeout-ms = <50>;
-            key-positions = <0 19>;
-            bindings = <&macro_par>;
-        };
+
 
         combo_alt_tab {
             timeout-ms = <50>;
-            key-positions = <0 28>;
+            key-positions = <0 5>;
             bindings = <&kp LA(TAB)>;
         };
 
+        combo_Parentheses {
+            timeout-ms = <50>;
+            key-positions = <0 29>;
+            bindings = <&macro_par>;
+        };
 
         combo_bracket_round_l {
             timeout-ms = <50>;
-            key-positions = <22 23>;
+            key-positions = <0 18>;
             bindings = <&kp LPAR>;
         };
 
         combo_bracket_round_r {
             timeout-ms = <50>;
-            key-positions = <23 24>;
+            key-positions = <0 19>;
             bindings = <&kp RPAR>;
         };
 
         combo_parentheses_chevrons {
             timeout-ms = <50>;
-            key-positions = <22 23 24>;
+            key-positions = <0 26>;
             bindings = <&parentheses_chevrons>;
         };
 
         combo_bracket_square_l {
             timeout-ms = <50>;
-            key-positions = <26 27>;
+            key-positions = <0 16>;
             bindings = <&kp LBKT>;
         };
 
         combo_bracket_square_r {
             timeout-ms = <50>;
-            key-positions = <27 28>;
+            key-positions = <0 17>;
             bindings = <&kp RBKT>;
         };
     };
