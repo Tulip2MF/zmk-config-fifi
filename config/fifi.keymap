@@ -127,26 +127,20 @@
         };
 
 
-combo_bracket_round_l {
-          timeout-ms = <50>;
-
-
-          key-positions = <22 23>;
-          bindings = <&kp LPAR>;
+        combo_bracket_round_l {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp LPAR>;
         };
         combo_bracket_round_r {
-          timeout-ms = <50>;
-
-
-          key-positions = <23 24>;
-          bindings = <&kp RPAR>;
+            timeout-ms = <50>;
+            key-positions = <23 24>;
+            bindings = <&kp RPAR>;
         };
         combo_parentheses_chevrons {
-          timeout-ms = <50>;
-
-
-          key-positions = <22 23 24>;
-          bindings = <&parentheses_chevrons>;
+            timeout-ms = <50>;
+            key-positions = <22 23 24>;
+            bindings = <&parentheses_chevrons>;
         };
 
         combo_bracket_square_l {
