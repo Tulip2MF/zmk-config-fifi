@@ -93,14 +93,8 @@
                 #binding-cells = <0>;
                 wait-ms = <10>;
                 tap-ms = <10>;
-                bindings
-                    = <&macro_tap &kp LT &kp GT &kp LEFT>
-                    ;
-
-
-
-
-            };
+                bindings = <&macro_tap &kp LT &kp GT &kp LEFT>;
+                };
 
   };
 };
