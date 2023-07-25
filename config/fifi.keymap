@@ -46,14 +46,14 @@
             bindings = <&kp>, <&kp>;
             };
         parentheses_chevrons: parentheses_chevrons {
-                    compatible = "zmk,behavior-mod-morph";
-                    label = "parentheses_chevrons";
-                    #binding-cells = <0>;
-                    bindings = <&parentheses>, <&chevrons>;
-                    mods = <(MOD_LSFT)>;
-                            };
+            compatible = "zmk,behavior-mod-morph";
+            label = "parentheses_chevrons";
+            #binding-cells = <0>;
+            bindings = <&parentheses>, <&chevrons>;
+            mods = <(MOD_LSFT)>;
+            };
+        };
     };
-};
 
 
 / {
