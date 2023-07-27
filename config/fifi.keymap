@@ -49,6 +49,7 @@
             #binding-cells = <0>;
             bindings = <&parentheses>, <&chevrons>;
             mods = <(MOD_LSFT)>;
+            };
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
@@ -60,7 +61,6 @@
             global-quick-tap-ms = <150>;         // requires PR #1387
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;             // requires PR #1423
-        };
             };
         };
     };
