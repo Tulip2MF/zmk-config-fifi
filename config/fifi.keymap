@@ -58,10 +58,10 @@
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <175>;                // repeat on tap-into-hold
-            global-quick-tap-ms = <150>;         // requires PR #1387
+            quick-tap-ms = <175>;                
+            global-quick-tap-ms = <150>;        
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release;             // requires PR #1423
+            hold-trigger-on-release;             
         };
         };
     };
