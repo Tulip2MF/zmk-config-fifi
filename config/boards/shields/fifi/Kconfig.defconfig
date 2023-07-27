@@ -33,27 +33,27 @@ config SSD1306_REVERSE_MODE
 
 endif # ZMK_DISPLAY
 
-if LV
+if LVGL
 
-config LV_HOR_RES_MAX
+config LVGL_HOR_RES_MAX
 	default 128
 
-config LV_VER_RES_MAX
+config LVGL_VER_RES_MAX
 	default 32
 
-config LV_VDB_SIZE
+config LVGL_VDB_SIZE
 	default 64
 
-config LV_DPI_DEF
+config LVGL_DPI
 	default 148
 
-config LV_Z_BITS_PER_PIXEL
+config LVGL_BITS_PER_PIXEL
 	default 1
 
-choice LV_COLOR_DEPTH
-	default LV_COLOR_DEPTH_1
+choice LVGL_COLOR_DEPTH
+	default LVGL_COLOR_DEPTH_1
 endchoice
 
-endif # LV
+endif # LVGL
 
 endif
