@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: urob
-      revision: fix-mod-morph
+      revision: main
       import: app/west.yml
   self:
     path: config
