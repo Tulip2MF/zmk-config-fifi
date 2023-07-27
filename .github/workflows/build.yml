@@ -1,59 +1,5 @@
 on: [push, pull_request, workflow_dispatch]
 
-name: Build
-
 jobs:
   build:
-    runs-on: ubuntu-latest
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    container:
-      image: zmkfirmware/zmk-build-arm:stable
-    name: Build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cache west modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-zephyr-modules
-        with:
-          path: |
-            modules/
-            tools/
-            zephyr/
-            bootloader/
-            zmk/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: West Init
-        run: west init -l config
-      - name: West Update
-        run: west update
-      - name: West Zephyr export
-        run: west zephyr-export
-      - name: West Build (Fifi Left)
-        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=fifi_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: Fifi Left Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 fifi_left_nice_nano_v2.uf2
-      - name: Archive (Fifi Left)
-        uses: actions/upload-artifact@v3
-        with:
-          name: firmware
-          path: fifi_left_nice_nano_v2.uf2
-      - name: West Build (Fifi Right)
-        run: west build --pristine -s zmk/app -b nice_nano_v2 -- -DSHIELD=fifi_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-
-      - name: Fifi Right Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 fifi_right_nice_nano_v2.uf2
-      - name: Archive (Fifi Right)
-        uses: actions/upload-artifact@v3
-        with:
-          name: firmware
-          path: fifi_right_nice_nano_v2.uf2
